@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  background-color: black;
 }
 
 .waiting-wrapper {
@@ -52,12 +53,9 @@ body {
   -webkit-user-select: none;
   user-select: none;
   z-index: 50;
-  margin-top: 50%;
-  margin-left: 50%;
-  transform: translate(-50%, -50%);
 
   position: absolute;
-  color: white;
+  color: black;
 }
 .tip {
   line-height: 100vh;
@@ -75,7 +73,7 @@ body {
   transform: translate(-50%, -50%);
 
   position: absolute;
-  color: white;
+  color: black;
 }
 
 .canvas-wrapper {
