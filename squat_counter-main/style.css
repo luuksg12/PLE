@@ -5,13 +5,8 @@ body {
   background-color: black;
 }
 
-.waiting-wrapper {
-  height: 100vh;
-  line-height: 100vh;
-}
-
 .waiting-box {
-  max-height: 25%;
+  max-height: 100vh;
   font-size: 6rem;
   text-align: center;
   /* prevent dragging */
@@ -21,15 +16,17 @@ body {
   -webkit-user-select: none;
   user-select: none;
   color: white;
+  padding-top: 15rem;
 }
 
 .waiting-box:hover {
-  color: darkorange;
+  color: #eee;
 }
 
 .input-wrapper {
   text-align: center;
   max-height: 25%;
+  padding-top: 15rem;
 }
 
 .max-input {
@@ -48,9 +45,12 @@ body {
 }
 
 .counting-box {
+  width: 100vw;
   line-height: 100vh;
   text-align: center;
-  font-size: 2rem;
+  top: -20rem;
+  font-size: 4rem;
+  text-decoration: solid;
   /* prevent dragging */
   -ms-user-select: none;
   -moz-user-select: -moz-none;
@@ -60,25 +60,29 @@ body {
   z-index: 50;
 
   position: absolute;
-  color: black;
+  color: #eee;
 }
-.tip {
-  line-height: 100vh;
-  text-align: center;
-  font-size: 2rem;
-  /* prevent dragging */
-  -ms-user-select: none;
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  z-index: 50;
-  margin-top: 50%;
-  margin-left: 50%;
-  transform: translate(-50%, -50%);
-
+.tip{
   position: absolute;
+  color: #eee;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.disclaimer{
+  color: #ccc;
+  font-size: 1.5rem;
+}
+.startButton{
+  background-color: #eeeeee; /* Green */
+  border: none;
   color: black;
+  padding: 4rem 4rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
+  border-radius: 10rem;
 }
 
 .start-record{

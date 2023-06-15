@@ -8,15 +8,18 @@
   </head>
   <body>
     <div class="waiting-wrapper">
-      <div class="waiting-box">Starten</div>
-      <div class="input-wrapper">
-        <input type="number" class="max-input" placeholder="Hoeveel squads?" />
+      <div class="waiting-box">
+        <button class="startButton" type="button" onclick=start()>Start</button>
+        <div class="input-wrapper">
+          <input type="number" class="max-input" placeholder="Hoeveel squads?" />
+          <p class="disclaimer">The base starter value is 10</p>
+        </div>
       </div>
     </div>
-    <div class="counting-wrapper">
-      <div class="counting-box hidden">Squads</div>
-      <div class="tip hidden"></div>
-      <div class="canvas-wrapper hidden">
+    <div class="counting-wrapper hidden">
+      <div class="counting-box">Squads</div>
+      <div class="tip"></div>
+      <div class="canvas-wrapper">
         <canvas id="canvas"></canvas>
         <div class="start-record"></div>
       </div>

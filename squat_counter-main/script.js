@@ -7,23 +7,22 @@ let model, webcam, ctx, labelContainer, maxPredictions;
 
 const waitingBox = document.querySelector(".waiting-box");
 const countingBox = document.querySelector(".counting-box");
+const tip = document.querySelector(".tip");
 const canvas = document.getElementById("canvas");
 const maxInput = document.querySelector(".max-input");
+const countingWrapper = document.querySelector(".counting-wrapper");
 const waitingWrapper = document.querySelector(".waiting-wrapper");
+const starten = document.querySelector(".starten");
 
 let status = "stand";
 let count = "0"; // Amount of squats done
 let time = 5; // Waiting time before cam turns on
-let max = 40; // Amount of goal squat
+let max = 5; // Amount of goal squat
 
-waitingBox.addEventListener(
-  "click",
-  () => {
-    max = maxInput.value;
+function start() {
+  max = maxInput.value;
     init();
-  },
-  { once: true }
-);
+}
 
 function countdown() {
   return new Promise((resolve, reject) => {
@@ -55,10 +54,8 @@ async function init(max) {
   await webcam.setup(); // request access to the webcam
 
   await countdown();
-
-  waitingBox.classList.add("hidden");
-  maxInput.classList.add("hidden");
   waitingWrapper.classList.add("hidden");
+  countingWrapper.classList.remove("hidden");
   countingBox.classList.remove("hidden");
   canvas.parentElement.classList.remove("hidden");
 
@@ -93,9 +90,14 @@ async function predict() {
   if (prediction[0].probability.toFixed(2) == 1.0) {
     if (status === "sit") {
       count++;
-      countingBox.innerHTML = `${count} squads`;
+      if(count === 1){
+        countingBox.innerHTML = `${count} squad`;
+      } else {
+        countingBox.innerHTML = `${count} squads`;
+      }
       if (count >= max) {
-        countingBox.innerHTML = "Make sure that your knees align with your feet leaning too far forward makes you lose balance.";
+        tip.innerHTML = "Make sure that your knees align with your feet leaning too far forward makes you lose balance.";
+        countingBox.classList.add("hidden")
         webcam.stop();
       }
     }
